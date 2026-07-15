@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 
@@ -27,13 +27,13 @@ const Feed = () => {
     }, []);
 
     const fetchPosts = async () => {
-        try {
-            const res = await axios.get("http://localhost:3000/posts");
-            setPosts(res.data.posts);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    try {
+        const res = await api.get("/posts");
+        setPosts(res.data.posts);
+    } catch (err) {
+        console.log(err);
+    }
+};
 
     const fetchUser = async () => {
         try {
