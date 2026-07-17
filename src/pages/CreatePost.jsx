@@ -5,6 +5,7 @@ import api from "../services/api";
 const CreatePost = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -25,6 +26,8 @@ const CreatePost = () => {
         const formData = new FormData(e.target);
 
         try {
+            setLoading(true);
+
             const res = await api.post("/create-post", formData);
 
             alert("Post Created Successfully");
@@ -34,6 +37,8 @@ const CreatePost = () => {
         } catch (err) {
             console.log(err);
             alert(err.response?.data?.message || "Failed to create post");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -62,6 +67,7 @@ const CreatePost = () => {
                         name="image"
                         accept="image/*"
                         required
+                        disabled={loading}
                         className="w-full border border-gray-300 rounded-lg p-3 mb-4"
                     />
 
@@ -70,19 +76,23 @@ const CreatePost = () => {
                         name="caption"
                         placeholder="Write a caption..."
                         required
+                        disabled={loading}
                         className="w-full border border-gray-300 rounded-lg p-3 mb-4"
                     />
 
                     <button
                         type="submit"
-                        className="w-full cursor-pointer bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+                        disabled={loading}
+                        className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
                     >
-                        Create Post
+                        {loading ? "Uploading..." : "Create Post"}
                     </button>
 
-                    <p className="text-center mt-4 text-gray-500">
-                        Uploading may take 10 seconds...
-                    </p>
+                    {loading && (
+                        <p className="text-center mt-4 text-gray-500">
+                            Uploading image, please wait...
+                        </p>
+                    )}
                 </form>
 
             </div>

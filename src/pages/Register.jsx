@@ -42,7 +42,7 @@ const Register = () => {
             <input className="w-full border border-gray-300 rounded-lg p-3 mb-4 " type="text" name="username" placeholder="Create an Username" value={formData.username} onChange={handleChange} required/>
             <input className="w-full border border-gray-300 rounded-lg p-3 mb-4 " type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} required/>
             <input className="w-full border border-gray-300 rounded-lg p-3 mb-4 " type="password" name="password" placeholder="Create a password" value={formData.password} onChange={handleChange} required/>
-            <button type="submit"  className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">Register</button>
+            <button type="submit"  className="cursor-pointer w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">Register</button>
             <p className="mt-4 text-center">
                 Already have an account?{" "}
                 <Link to="/login" className="text-blue-600">
