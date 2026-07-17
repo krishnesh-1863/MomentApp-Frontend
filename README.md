@@ -1,16 +1,24 @@
-# React + Vite
+# Moment App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Moment App is a full-stack MERN social media application where users can create accounts, log in securely, and share image-based posts with captions. The application features JWT-based authentication, image storage using ImageKit, and a clean, responsive user interface built with React and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* User registration and login with JWT authentication
+* Secure protected routes using HTTP-only cookies
+* Create and share posts with image uploads
+* Image hosting and management with ImageKit
+* View all posts in a responsive feed
+* Delete posts with backend authorization
+* RESTful API built with Express.js
+* MongoDB Atlas for cloud database storage
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Frontend:** React, Vite, Tailwind CSS, Axios
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB Atlas with Mongoose
+* **Authentication:** JWT, bcrypt
+* **Image Storage:** ImageKit
+* **Deployment:** Render (Backend) & Netlify (Frontend)
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
